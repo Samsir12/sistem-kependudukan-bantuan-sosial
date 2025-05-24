@@ -1,0 +1,31 @@
+RewriteEngine On
+RewriteBase /simkbs/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^beranda$ index.php?views_user=beranda
+RewriteRule ^search$ search.php
+RewriteRule ^filter$ list_data.php
+RewriteRule ^login$ login.php
+
+RewriteRule ^dashboard$ admin.php?views=dashboard
+
+RewriteRule ^data_kependudukan$ admin.php?views=data_kependudukan
+RewriteRule ^input_data_kependudukan$ admin.php?views=input_data_kependudukan
+RewriteRule ^edit_data_kependudukan/([0-9]+)$ admin.php?views=edit_data_kependudukan&id=$1 [NC,L]
+RewriteRule ^detail_penduduk/([0-9]+)$ admin.php?views=detail_penduduk&id=$1 [NC,L]
+
+RewriteRule ^data_kondisi_rumah$ admin.php?views=data_kondisi_rumah
+RewriteRule ^input_data_kondisi$ admin.php?views=input_data_kondisi
+RewriteRule ^edit_data_kondisi/([0-9]+)$ admin.php?views=edit_data_kondisi&id=$1 [NC,L]
+
+RewriteRule ^data_klasifikasi_kependudukan$ admin.php?views=data_klasifikasi_kependudukan
+RewriteRule ^data_klasifikasi_bantuan$ admin.php?views=data_klasifikasi_bantuan
+
+RewriteRule ^control_panel$ admin.php?views=control_panel
+
+RewriteRule ^([A-Za-z0-9-]+)$ admin.php?views=$1
+RewriteRule ^([A-Za-z0-9-]+)$ index.php?views_user=$1
+
+Options All -Indexes
